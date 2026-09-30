@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Noto Sans Devanagari", "Noto Sans Bengali", ui-sans-serif, system-ui, sans-serif;
+  --color-navy-950: #0a1630;
+  --color-navy-900: #0f1f45;
+  --color-navy-700: #23386b;
+  --color-blue-50: #f3f7fd;
+  --color-blue-100: #e6eefb;
+  --color-blue-600: #2f5fcc;
+  --color-teal-600: #0b7f74;
+  --color-teal-50: #e6f6f4;
+  --color-slate-600: #475569;
+  --color-line: #e3e8f0;
+  --color-safe: #15803d;
+  --color-safe-bg: #dcfce7;
+  --color-warn: #b45309;
+  --color-warn-bg: #fef3c7;
+  --color-high: #c2410c;
+  --color-high-bg: #ffedd5;
+  --color-critical: #b91c1c;
+  --color-critical-bg: #fee2e2;
+  --shadow-card: 0 1px 2px rgba(15, 31, 69, 0.06), 0 8px 24px rgba(15, 31, 69, 0.06);
+  --shadow-modal: 0 4px 12px rgba(15, 31, 69, 0.12), 0 24px 64px rgba(15, 31, 69, 0.22);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--color-blue-50);
+  color: var(--color-navy-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { letter-spacing: -0.02em; }
+.tnum { font-variant-numeric: tabular-nums; }
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.pulse-ring { animation: pulse-ring 2s ease-out infinite; }
+@keyframes caret { 50% { opacity: 0; } }
+.caret { animation: caret 1s steps(1) infinite; }
+@keyframes dash { to { stroke-dashoffset: -24; } }
+.dash-flow { animation: dash 1.2s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .pulse-ring, .caret, .dash-flow { animation: none; }
+  html { scroll-behavior: auto; }
+}
